@@ -1,0 +1,158 @@
+/usr/local/lib/python3.5/dist-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+Using TensorFlow backend.
+/usr/local/lib/python3.5/dist-packages/sklearn/ensemble/weight_boosting.py:29: DeprecationWarning: numpy.core.umath_tests is an internal NumPy module and should not be imported. It will be removed in a future NumPy release.
+  from numpy.core.umath_tests import inner1d
+
+
+================================= Start of preprocessing stage ==============================
+Initial training and test data shapes:  (125973, 43) (22544, 43)
+Unique labels ['normal' 'dos' 'r2l' 'probe' 'u2r']
+Training dataset shape (125973, 122) (125973, 5)
+Test dataset shape (22544, 122) (22544, 5)
+Label encoder y shape (125973,) (22544,)
+================================= End of preprocessing stage ================================
+
+
+======================= Start of adversarial sample generation ==============================
+
+
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+dense_1 (Dense)              (None, 256)               31488     
+_________________________________________________________________
+dropout_1 (Dropout)          (None, 256)               0         
+_________________________________________________________________
+dense_2 (Dense)              (None, 128)               32896     
+_________________________________________________________________
+dropout_2 (Dropout)          (None, 128)               0         
+_________________________________________________________________
+dense_3 (Dense)              (None, 64)                8256      
+_________________________________________________________________
+dropout_3 (Dropout)          (None, 64)                0         
+_________________________________________________________________
+dense_4 (Dense)              (None, 32)                2080      
+_________________________________________________________________
+dropout_4 (Dropout)          (None, 32)                0         
+_________________________________________________________________
+dense_5 (Dense)              (None, 5)                 165       
+=================================================================
+Total params: 74,885
+Trainable params: 74,885
+Non-trainable params: 0
+_________________________________________________________________
+2019-03-04 23:34:36.231532: I tensorflow/core/platform/cpu_feature_guard.cc:137] Your CPU supports instructions that this TensorFlow binary was not compiled to use: SSE4.1 SSE4.2 AVX AVX2 FMA
+/usr/local/lib/python3.5/dist-packages/cleverhans/utils_tf.py:422: UserWarning: This function is deprecated and will be removed on or after 2019-04-05. Switch to cleverhans.train.train.
+  warnings.warn("This function is deprecated and will be removed on or after"
+/usr/local/lib/python3.5/dist-packages/cleverhans/utils_tf.py:37: UserWarning: This function is deprecated and will be removed on or after 2019-04-05. Switch to cleverhans.train.train.
+  warnings.warn("This function is deprecated and will be removed on or after"
+/usr/local/lib/python3.5/dist-packages/cleverhans/compat.py:130: UserWarning: Running on tensorflow version 1.4.1. Support for this version in CleverHans is deprecated and may be removed on or after 2019-01-26
+  warnings.warn(warning)
+/usr/local/lib/python3.5/dist-packages/cleverhans/compat.py:33: UserWarning: Running on tensorflow version 1.4.1. Support for this version in CleverHans is deprecated and may be removed on or after 2019-01-26
+  warnings.warn(warning)
+[INFO 2019-03-04 23:34:42,913 cleverhans] Epoch 0 took 6.352962970733643 seconds
+Test accuracy on legitimate test samples: 0.7483587650816181
+[INFO 2019-03-04 23:34:49,696 cleverhans] Epoch 1 took 6.311835765838623 seconds
+Test accuracy on legitimate test samples: 0.774263662171753
+[INFO 2019-03-04 23:34:56,379 cleverhans] Epoch 2 took 6.211754322052002 seconds
+Test accuracy on legitimate test samples: 0.7572303051809794
+[INFO 2019-03-04 23:35:03,386 cleverhans] Epoch 3 took 6.5561442375183105 seconds
+Test accuracy on legitimate test samples: 0.7658356990773598
+[INFO 2019-03-04 23:35:10,104 cleverhans] Epoch 4 took 6.2601141929626465 seconds
+Test accuracy on legitimate test samples: 0.7519960965223563
+[INFO 2019-03-04 23:35:16,782 cleverhans] Epoch 5 took 6.228291988372803 seconds
+Test accuracy on legitimate test samples: 0.7641057487579844
+[INFO 2019-03-04 23:35:23,482 cleverhans] Epoch 6 took 6.250684022903442 seconds
+Test accuracy on legitimate test samples: 0.7708037615330021
+[INFO 2019-03-04 23:35:30,213 cleverhans] Epoch 7 took 6.271873950958252 seconds
+Test accuracy on legitimate test samples: 0.7702714691270405
+[INFO 2019-03-04 23:35:36,901 cleverhans] Epoch 8 took 6.237240314483643 seconds
+Test accuracy on legitimate test samples: 0.7706263307310149
+[INFO 2019-03-04 23:35:43,657 cleverhans] Epoch 9 took 6.294318675994873 seconds
+Test accuracy on legitimate test samples: 0.7620652945351313
+[INFO 2019-03-04 23:35:50,385 cleverhans] Epoch 10 took 6.273403882980347 seconds
+Test accuracy on legitimate test samples: 0.7813165365507452
+[INFO 2019-03-04 23:35:57,418 cleverhans] Epoch 11 took 6.577357530593872 seconds
+Test accuracy on legitimate test samples: 0.7753726046841731
+[INFO 2019-03-04 23:36:04,137 cleverhans] Epoch 12 took 6.260026454925537 seconds
+Test accuracy on legitimate test samples: 0.7794091554293825
+[INFO 2019-03-04 23:36:10,996 cleverhans] Epoch 13 took 6.386544466018677 seconds
+Test accuracy on legitimate test samples: 0.7531493967352733
+[INFO 2019-03-04 23:36:17,826 cleverhans] Epoch 14 took 6.364779710769653 seconds
+Test accuracy on legitimate test samples: 0.7647267565649397
+[INFO 2019-03-04 23:36:24,685 cleverhans] Epoch 15 took 6.391136884689331 seconds
+Test accuracy on legitimate test samples: 0.7755056777856636
+[INFO 2019-03-04 23:36:31,427 cleverhans] Epoch 16 took 6.277711391448975 seconds
+Test accuracy on legitimate test samples: 0.7519073811213627
+[INFO 2019-03-04 23:36:38,242 cleverhans] Epoch 17 took 6.353708028793335 seconds
+Test accuracy on legitimate test samples: 0.7607345635202271
+[INFO 2019-03-04 23:36:44,932 cleverhans] Epoch 18 took 6.232125997543335 seconds
+Test accuracy on legitimate test samples: 0.7652590489709014
+[INFO 2019-03-04 23:36:51,662 cleverhans] Epoch 19 took 6.279029369354248 seconds
+Test accuracy on legitimate test samples: 0.7769251242015613
+[INFO 2019-03-04 23:36:52,116 cleverhans] Completed model training.
+[INFO 2019-03-04 23:36:52,516 cleverhans] Constructing new graph for attack SaliencyMapMethod
+Generating adv. example for target class 0 for sample 22543
+(22544, 122)
+=========================== Evaluation of MLP Performance ==============================
+
+Test accuracy on normal examples: 0.7776792051100071
+Test accuracy on adversarial examples: 0.5300745209368346
+
+=============================== Decision tree CLassifier ==============================
+Accuracy score: 0.731902058197303
+F1 Score: 0.7559890717785455
+AUC score: 0.8062509525360853
+Accuracy score adversarial: 0.5860982966643009
+F1 Score adversarial: 0.656444840310472
+AUC score adversarial: 0.7781890438712694
+
+
+=============================== Random Forest CLassifier ==============================
+Accuracy score: 0.7398864442867282
+F1 Score: 0.7551278575946508
+AUC score: 0.8075866475530744
+Accuracy score adversarial: 0.664833215046132
+F1 Score adversarial: 0.6831676502928439
+AUC score adversarial: 0.788786721733032
+
+
+=============================== Linear SVC CLassifier ==============================
+Accuracy score: 0.7311036195883606
+F1 Score: 0.7501488653154842
+AUC score: 0.7748643544079632
+Accuracy score adversarial: 0.5410308729595458
+F1 Score adversarial: 0.5960466521904592
+AUC score adversarial: 0.7878905945608977
+
+
+=============================== Voting CLassifier ==============================
+/usr/local/lib/python3.5/dist-packages/sklearn/preprocessing/label.py:171: DeprecationWarning: The truth value of an empty array is ambiguous. Returning False, but in future this will result in an error. Use `array.size > 0` to check that an array is not empty.
+  if diff:
+Accuracy score: 0.7543914123491838
+F1 Score: 0.7543914123491838
+AUC score: 0.6959270385503955
+/usr/local/lib/python3.5/dist-packages/sklearn/preprocessing/label.py:171: DeprecationWarning: The truth value of an empty array is ambiguous. Returning False, but in future this will result in an error. Use `array.size > 0` to check that an array is not empty.
+  if diff:
+Accuracy score adversarial: 0.6891412349183819
+F1 Score adversarial: 0.6891412349183819
+AUC score adversarial: 0.5825216239382841
+
+
+====================== Adversarial Feature Statistics =======================
+Number of unique features changed with JSMA: 105
+Number of average features changed per datapoint with JSMA: 11.375221788502484
+Top ten features:  Index(['srv_count', 'count', 'dst_host_srv_count', 'dst_host_same_srv_rate',
+       'src_bytes', 'same_srv_rate', 'dst_bytes', 'dst_host_diff_srv_rate',
+       'dst_host_count', 'dst_host_same_src_port_rate'],
+      dtype='object')
+/usr/local/lib/python3.5/dist-packages/cleverhans/compat.py:33: UserWarning: Running on tensorflow version 1.4.1. Support for this version in CleverHans is deprecated and may be removed on or after 2019-01-26
+  warnings.warn(warning)
+/usr/local/lib/python3.5/dist-packages/cleverhans/compat.py:130: UserWarning: Running on tensorflow version 1.4.1. Support for this version in CleverHans is deprecated and may be removed on or after 2019-01-26
+  warnings.warn(warning)
+/usr/local/lib/python3.5/dist-packages/cleverhans/utils_tf.py:294: UserWarning: batch_eval has moved to cleverhans.evaluation. batch_eval will be removed from utils_tf on or after 2019-03-09.
+  warnings.warn("batch_eval has moved to cleverhans.evaluation. "
+Test accuracy on adversarial examples: 0.46278388928317954
+Number of unique features changed with FGSM: 122
+Number of average features changed per datapoint with FGSM: 74.0374378992193

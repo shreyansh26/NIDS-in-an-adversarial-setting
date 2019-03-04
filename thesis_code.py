@@ -31,8 +31,8 @@ K.set_learning_phase(1)
 FLAGS = flags.FLAGS
 
 flags.DEFINE_integer('nb_epochs', 20, 'Number of epochs to train model')
-flags.DEFINE_integer('batch_size', 128, 'Size of training batches')
-flags.DEFINE_integer('learning_rate', 0.1, 'Learning rate for training')
+flags.DEFINE_integer('batch_size', 64, 'Size of training batches')
+flags.DEFINE_integer('learning_rate', 0.005, 'Learning rate for training')
 flags.DEFINE_integer('nb_classes', 5, 'Number of classification classes')
 flags.DEFINE_integer('source_samples', 10, 'Nb of test set examples to attack')
 
@@ -152,6 +152,25 @@ def mlp_model():
 	model.summary()
 	return model
 
+def mlp_model2():
+    """
+    Generate a Multilayer Perceptron model
+    """
+    model = Sequential()
+    model.add(Dense(256, activation='relu', input_shape=(X_train_scaled.shape[1], )))
+    model.add(Dropout(0.2))
+    model.add(Dense(128, activation='relu'))
+    model.add(Dropout(0.2))
+    model.add(Dense(64, activation='relu'))
+    model.add(Dropout(0.2))
+    model.add(Dense(32, activation='relu'))
+    model.add(Dropout(0.2))
+    model.add(Dense(FLAGS.nb_classes, activation='softmax'))
+    model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
+
+    model.summary()
+    return model
+
 def evaluate():
 	"""
 	Model evaluation function
@@ -167,7 +186,7 @@ x = tf.placeholder(tf.float32, shape=(None, X_train_scaled.shape[1]))
 y = tf.placeholder(tf.float32, shape=(None, FLAGS.nb_classes))
 
 tf.set_random_seed(42)
-model = mlp_model()
+model = mlp_model2()
 sess = tf.Session()
 predictions = model(x)
 init = tf.global_variables_initializer()
