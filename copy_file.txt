@@ -1,0 +1,1 @@
+systems are the ones that try to model normal behavior in a network in contrast to what is anomalous and potentially malicious. While these systems promise the ability to adapt to new attacks, one of the major concerns is the definition of what constitutes anomalous behavior and whether or not malicious behavior is in fact anomalous and vice versa.

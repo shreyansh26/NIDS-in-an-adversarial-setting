@@ -1,0 +1,211 @@
+================================= Start of preprocessing stage ==============================
+Initial training and test data shapes:  (125973, 43) (22544, 43)
+Unique labels ['normal' 'dos' 'r2l' 'probe' 'u2r']
+Training dataset shape (125973, 122) (125973, 5)
+Test dataset shape (22544, 122) (22544, 5)
+Label encoder y shape (125973,) (22544,)
+================================= End of preprocessing stage ================================
+
+
+======================= Start of adversarial sample generation ==============================
+
+
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+dense_1 (Dense)              (None, 256)               31488     
+_________________________________________________________________
+dropout_1 (Dropout)          (None, 256)               0         
+_________________________________________________________________
+dense_2 (Dense)              (None, 128)               32896     
+_________________________________________________________________
+dropout_2 (Dropout)          (None, 128)               0         
+_________________________________________________________________
+dense_3 (Dense)              (None, 64)                8256      
+_________________________________________________________________
+dropout_3 (Dropout)          (None, 64)                0         
+_________________________________________________________________
+dense_4 (Dense)              (None, 32)                2080      
+_________________________________________________________________
+dropout_4 (Dropout)          (None, 32)                0         
+_________________________________________________________________
+dense_5 (Dense)              (None, 5)                 165       
+=================================================================
+Total params: 74,885
+Trainable params: 74,885
+Non-trainable params: 0
+_________________________________________________________________
+2019-04-07 15:17:50.651632: I tensorflow/core/platform/cpu_feature_guard.cc:137] Your CPU supports instructions that this TensorFlow binary was not compiled to use: SSE4.1 SSE4.2 AVX AVX2 FMA
+/usr/local/lib/python3.5/dist-packages/cleverhans/utils_tf.py:422: UserWarning: This function is deprecated and will be removed on or after 2019-04-05. Switch to cleverhans.train.train.
+  warnings.warn("This function is deprecated and will be removed on or after"
+/usr/local/lib/python3.5/dist-packages/cleverhans/utils_tf.py:37: UserWarning: This function is deprecated and will be removed on or after 2019-04-05. Switch to cleverhans.train.train.
+  warnings.warn("This function is deprecated and will be removed on or after"
+/usr/local/lib/python3.5/dist-packages/cleverhans/compat.py:130: UserWarning: Running on tensorflow version 1.4.1. Support for this version in CleverHans is deprecated and may be removed on or after 2019-01-26
+  warnings.warn(warning)
+/usr/local/lib/python3.5/dist-packages/cleverhans/compat.py:33: UserWarning: Running on tensorflow version 1.4.1. Support for this version in CleverHans is deprecated and may be removed on or after 2019-01-26
+  warnings.warn(warning)
+[INFO 2019-04-07 15:17:58,516 cleverhans] Epoch 0 took 7.123308420181274 seconds
+Test accuracy on legitimate test samples: 0.9688165365507452
+[INFO 2019-04-07 15:18:06,873 cleverhans] Epoch 1 took 7.20024847984314 seconds
+Test accuracy on legitimate test samples: 0.9785752306600426
+[INFO 2019-04-07 15:18:14,039 cleverhans] Epoch 2 took 6.638511896133423 seconds
+Test accuracy on legitimate test samples: 0.9802164655784245
+[INFO 2019-04-07 15:18:21,028 cleverhans] Epoch 3 took 6.457314968109131 seconds
+Test accuracy on legitimate test samples: 0.9795067423704755
+[INFO 2019-04-07 15:18:28,666 cleverhans] Epoch 4 took 7.083700180053711 seconds
+Test accuracy on legitimate test samples: 0.9823012775017743
+[INFO 2019-04-07 15:18:37,052 cleverhans] Epoch 5 took 7.789932489395142 seconds
+Test accuracy on legitimate test samples: 0.9814141234918382
+[INFO 2019-04-07 15:18:44,103 cleverhans] Epoch 6 took 6.563759088516235 seconds
+Test accuracy on legitimate test samples: 0.9787526614620298
+[INFO 2019-04-07 15:18:50,917 cleverhans] Epoch 7 took 6.311189651489258 seconds
+Test accuracy on legitimate test samples: 0.9815915542938254
+[INFO 2019-04-07 15:18:57,930 cleverhans] Epoch 8 took 6.485905647277832 seconds
+Test accuracy on legitimate test samples: 0.9832327892122072
+[INFO 2019-04-07 15:19:04,838 cleverhans] Epoch 9 took 6.371274471282959 seconds
+Test accuracy on legitimate test samples: 0.982123846699787
+[INFO 2019-04-07 15:19:11,681 cleverhans] Epoch 10 took 6.321648359298706 seconds
+Test accuracy on legitimate test samples: 0.982611781405252
+[INFO 2019-04-07 15:19:18,520 cleverhans] Epoch 11 took 6.367773532867432 seconds
+Test accuracy on legitimate test samples: 0.9806600425833925
+[INFO 2019-04-07 15:19:25,422 cleverhans] Epoch 12 took 6.4049973487854 seconds
+Test accuracy on legitimate test samples: 0.9824343506032647
+[INFO 2019-04-07 15:19:32,388 cleverhans] Epoch 13 took 6.497003078460693 seconds
+Test accuracy on legitimate test samples: 0.984208658623137
+[INFO 2019-04-07 15:19:39,467 cleverhans] Epoch 14 took 6.549891948699951 seconds
+Test accuracy on legitimate test samples: 0.9816359119943222
+[INFO 2019-04-07 15:19:46,382 cleverhans] Epoch 15 took 6.380641222000122 seconds
+Test accuracy on legitimate test samples: 0.9834102200141944
+[INFO 2019-04-07 15:19:53,224 cleverhans] Epoch 16 took 6.316559314727783 seconds
+Test accuracy on legitimate test samples: 0.9827004968062456
+[INFO 2019-04-07 15:20:00,033 cleverhans] Epoch 17 took 6.340633392333984 seconds
+Test accuracy on legitimate test samples: 0.9817689850958127
+[INFO 2019-04-07 15:20:06,931 cleverhans] Epoch 18 took 6.382077217102051 seconds
+Test accuracy on legitimate test samples: 0.9825230660042583
+[INFO 2019-04-07 15:20:13,716 cleverhans] Epoch 19 took 6.326169013977051 seconds
+Test accuracy on legitimate test samples: 0.9834102200141944
+[INFO 2019-04-07 15:20:20,614 cleverhans] Epoch 20 took 6.38040566444397 seconds
+Test accuracy on legitimate test samples: 0.9840755855216465
+[INFO 2019-04-07 15:20:27,415 cleverhans] Epoch 21 took 6.338280439376831 seconds
+Test accuracy on legitimate test samples: 0.9837207239176721
+[INFO 2019-04-07 15:20:34,239 cleverhans] Epoch 22 took 6.302741050720215 seconds
+Test accuracy on legitimate test samples: 0.9840755855216465
+[INFO 2019-04-07 15:20:41,426 cleverhans] Epoch 23 took 6.672006130218506 seconds
+Test accuracy on legitimate test samples: 0.9850070972320795
+[INFO 2019-04-07 15:20:48,880 cleverhans] Epoch 24 took 6.93851375579834 seconds
+Test accuracy on legitimate test samples: 0.9836320085166785
+[INFO 2019-04-07 15:20:56,111 cleverhans] Epoch 25 took 6.706362962722778 seconds
+Test accuracy on legitimate test samples: 0.9846965933286018
+[INFO 2019-04-07 15:21:03,205 cleverhans] Epoch 26 took 6.582988500595093 seconds
+Test accuracy on legitimate test samples: 0.9835432931156849
+[INFO 2019-04-07 15:21:10,100 cleverhans] Epoch 27 took 6.439654588699341 seconds
+Test accuracy on legitimate test samples: 0.9818577004968062
+[INFO 2019-04-07 15:21:16,888 cleverhans] Epoch 28 took 6.3202691078186035 seconds
+Test accuracy on legitimate test samples: 0.9827004968062456
+[INFO 2019-04-07 15:21:23,646 cleverhans] Epoch 29 took 6.285723686218262 seconds
+Test accuracy on legitimate test samples: 0.9851845280340668
+[INFO 2019-04-07 15:21:30,430 cleverhans] Epoch 30 took 6.308817148208618 seconds
+Test accuracy on legitimate test samples: 0.9849627395315826
+[INFO 2019-04-07 15:21:37,459 cleverhans] Epoch 31 took 6.565898180007935 seconds
+Test accuracy on legitimate test samples: 0.984652235628105
+[INFO 2019-04-07 15:21:44,386 cleverhans] Epoch 32 took 6.449138641357422 seconds
+Test accuracy on legitimate test samples: 0.9840312278211497
+[INFO 2019-04-07 15:21:51,236 cleverhans] Epoch 33 took 6.401957035064697 seconds
+Test accuracy on legitimate test samples: 0.9845635202271115
+[INFO 2019-04-07 15:21:58,354 cleverhans] Epoch 34 took 6.618859052658081 seconds
+Test accuracy on legitimate test samples: 0.9833658623136976
+[INFO 2019-04-07 15:22:05,269 cleverhans] Epoch 35 took 6.367987394332886 seconds
+Test accuracy on legitimate test samples: 0.9827448545067423
+[INFO 2019-04-07 15:22:12,213 cleverhans] Epoch 36 took 6.470587491989136 seconds
+Test accuracy on legitimate test samples: 0.9847409510290986
+[INFO 2019-04-07 15:22:19,036 cleverhans] Epoch 37 took 6.332443714141846 seconds
+Test accuracy on legitimate test samples: 0.9857611781405252
+[INFO 2019-04-07 15:22:25,922 cleverhans] Epoch 38 took 6.417078733444214 seconds
+Test accuracy on legitimate test samples: 0.9854950319375444
+[INFO 2019-04-07 15:22:32,833 cleverhans] Epoch 39 took 6.435451984405518 seconds
+Test accuracy on legitimate test samples: 0.9838537970191625
+[INFO 2019-04-07 15:22:39,642 cleverhans] Epoch 40 took 6.348479509353638 seconds
+Test accuracy on legitimate test samples: 0.9819907735982967
+[INFO 2019-04-07 15:22:46,461 cleverhans] Epoch 41 took 6.3506386280059814 seconds
+Test accuracy on legitimate test samples: 0.986027324343506
+[INFO 2019-04-07 15:22:53,306 cleverhans] Epoch 42 took 6.39725136756897 seconds
+Test accuracy on legitimate test samples: 0.985805535841022
+[INFO 2019-04-07 15:23:00,158 cleverhans] Epoch 43 took 6.395838022232056 seconds
+Test accuracy on legitimate test samples: 0.9855393896380412
+[INFO 2019-04-07 15:23:07,004 cleverhans] Epoch 44 took 6.3736748695373535 seconds
+Test accuracy on legitimate test samples: 0.9858942512420156
+[INFO 2019-04-07 15:23:13,876 cleverhans] Epoch 45 took 6.407762289047241 seconds
+Test accuracy on legitimate test samples: 0.9847853087295955
+[INFO 2019-04-07 15:23:20,644 cleverhans] Epoch 46 took 6.3099939823150635 seconds
+Test accuracy on legitimate test samples: 0.9831440738112136
+[INFO 2019-04-07 15:23:27,532 cleverhans] Epoch 47 took 6.44122576713562 seconds
+Test accuracy on legitimate test samples: 0.9803495386799148
+[INFO 2019-04-07 15:23:34,362 cleverhans] Epoch 48 took 6.3680737018585205 seconds
+Test accuracy on legitimate test samples: 0.9842973740241305
+[INFO 2019-04-07 15:23:41,188 cleverhans] Epoch 49 took 6.350703477859497 seconds
+Test accuracy on legitimate test samples: 0.9842973740241305
+[INFO 2019-04-07 15:23:41,643 cleverhans] Completed model training.
+[INFO 2019-04-07 15:23:42,044 cleverhans] Constructing new graph for attack SaliencyMapMethod
+Generating adv. example for target class 0 for sample 22542
+(22544, 122)
+=========================== Evaluation of MLP Performance ==============================
+
+Test accuracy on normal examples: 0.9851401703335699
+Test accuracy on adversarial examples: 0.3402679205110007
+
+=============================== Decision tree CLassifier ==============================
+Accuracy score: 0.9891323633782825
+F1 Score: 0.9925035486160397
+AUC score: 0.9928917983509179
+Accuracy score adversarial: 0.6757452093683464
+F1 Score adversarial: 0.8251299592246893
+AUC score adversarial: 0.7310404836050559
+
+
+=============================== Random Forest CLassifier ==============================
+Accuracy score: 0.9934350603264727
+F1 Score: 0.9942311959174617
+AUC score: 0.9943110311050896
+Accuracy score adversarial: 0.9768452803406671
+F1 Score adversarial: 0.9828734326629696
+AUC score adversarial: 0.9878640776699029
+
+
+=============================== Linear SVC CLassifier ==============================
+Accuracy score: 0.9455731014904187
+F1 Score: 0.9587653938844547
+AUC score: 0.954498372318149
+Accuracy score adversarial: 0.8309971611071683
+F1 Score adversarial: 0.8566272308000803
+AUC score adversarial: 0.9476552482139585
+
+
+=============================== Voting CLassifier ==============================
+/usr/local/lib/python3.5/dist-packages/sklearn/preprocessing/label.py:171: DeprecationWarning: The truth value of an empty array is ambiguous. Returning False, but in future this will result in an error. Use `array.size > 0` to check that an array is not empty.
+  if diff:
+Accuracy score: 0.9935237757274663
+F1 Score: 0.9935237757274663
+AUC score: 0.7465642965922689
+/usr/local/lib/python3.5/dist-packages/sklearn/preprocessing/label.py:171: DeprecationWarning: The truth value of an empty array is ambiguous. Returning False, but in future this will result in an error. Use `array.size > 0` to check that an array is not empty.
+  if diff:
+Accuracy score adversarial: 0.9433995741660752
+F1 Score adversarial: 0.9433995741660752
+AUC score adversarial: 0.7415735482689138
+
+
+====================== Adversarial Feature Statistics =======================
+Number of unique features changed with JSMA: 89
+Number of average features changed per datapoint with JSMA: 11.585211142654364
+Top ten features:  Index(['srv_count', 'count', 'dst_host_srv_count', 'dst_host_same_srv_rate',
+       'same_srv_rate', 'src_bytes', 'dst_host_diff_srv_rate',
+       'dst_host_count', 'dst_bytes', 'duration'],
+      dtype='object')
+/usr/local/lib/python3.5/dist-packages/cleverhans/compat.py:33: UserWarning: Running on tensorflow version 1.4.1. Support for this version in CleverHans is deprecated and may be removed on or after 2019-01-26
+  warnings.warn(warning)
+/usr/local/lib/python3.5/dist-packages/cleverhans/compat.py:130: UserWarning: Running on tensorflow version 1.4.1. Support for this version in CleverHans is deprecated and may be removed on or after 2019-01-26
+  warnings.warn(warning)
+/usr/local/lib/python3.5/dist-packages/cleverhans/utils_tf.py:294: UserWarning: batch_eval has moved to cleverhans.evaluation. batch_eval will be removed from utils_tf on or after 2019-03-09.
+  warnings.warn("batch_eval has moved to cleverhans.evaluation. "
+Test accuracy on adversarial examples: 0.5199609652235628
+Number of unique features changed with FGSM: 122
+Number of average features changed per datapoint with FGSM: 76.47374024130589
