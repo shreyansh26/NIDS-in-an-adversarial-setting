@@ -11,7 +11,8 @@ from cleverhans.utils_tf import model_train , model_eval , batch_eval, model_arg
 from cleverhans.attacks_tf import jacobian_graph
 from cleverhans.utils import other_classes
 from cleverhans.utils_keras import KerasModelWrapper
-
+from keras.models import load_model
+from keras.models import model_from_json
 import tensorflow as tf
 from tensorflow.python.platform import flags
 
@@ -31,7 +32,7 @@ K.set_learning_phase(1)
 
 FLAGS = flags.FLAGS
 
-flags.DEFINE_integer('nb_epochs', 50, 'Number of epochs to train model')
+flags.DEFINE_integer('nb_epochs', 30, 'Number of epochs to train model')
 flags.DEFINE_integer('batch_size', 64, 'Size of training batches')
 flags.DEFINE_integer('learning_rate', 0.005, 'Learning rate for training')
 flags.DEFINE_integer('nb_classes', 5, 'Number of classification classes')
@@ -52,7 +53,7 @@ assert full.shape[0] == df_train.shape[0] + df_test.shape[0]
 
 full['label'] = full['attack_type']
 
-# DoS Attacks
+# Denial-of-Service (DoS) Attacks
 full.loc[full.label == 'neptune', 'label'] = 'dos'
 full.loc[full.label == 'back', 'label'] = 'dos'
 full.loc[full.label == 'land', 'label'] = 'dos'
@@ -65,7 +66,7 @@ full.loc[full.label == 'udpstorm', 'label'] = 'dos'
 full.loc[full.label == 'apache2', 'label'] = 'dos'
 full.loc[full.label == 'worm', 'label'] = 'dos'
 
-# User-to-root (U2R)
+# User-to-root (U2R) Attacks
 full.loc[full.label == 'buffer_overflow', 'label'] = 'u2r'
 full.loc[full.label == 'loadmodule', 'label'] = 'u2r'
 full.loc[full.label == 'perl', 'label'] = 'u2r'
@@ -74,7 +75,7 @@ full.loc[full.label == 'sqlattack', 'label'] = 'u2r'
 full.loc[full.label == 'xterm', 'label'] = 'u2r'
 full.loc[full.label == 'ps', 'label'] = 'u2r'
 
-# Remote-to-local (R2L)
+# Remote-to-local (R2L) Attacks
 full.loc[full.label == 'ftp_write', 'label'] = 'r2l'
 full.loc[full.label == 'guess_passwd', 'label'] = 'r2l'
 full.loc[full.label == 'imap', 'label'] = 'r2l'
@@ -91,7 +92,7 @@ full.loc[full.label == 'snmpguess', 'label'] = 'r2l'
 full.loc[full.label == 'sendmail', 'label'] = 'r2l'
 full.loc[full.label == 'named', 'label'] = 'r2l'
 
-# Probe attacls
+# Probe attacks
 full.loc[full.label == 'satan', 'label'] = 'probe'
 full.loc[full.label == 'ipsweep', 'label'] = 'probe'
 full.loc[full.label == 'nmap', 'label'] = 'probe'
@@ -102,6 +103,7 @@ full.loc[full.label == 'mscan', 'label'] = 'probe'
 full = full.drop(['other', 'attack_type'], axis=1)
 print("Unique labels", full.label.unique())
 full = full.sample(frac=1).reset_index(drop=True)
+
 # Generate One - Hot encoding
 full2 = pd.get_dummies(full, drop_first=False)
 
@@ -208,11 +210,33 @@ model_train(sess, x, y, predictions, X_train_scaled, y_train, evaluate=evaluate,
 file = open("scores.pkl", "wb")
 pickle.dump(acc_list, file)
 file.close()
-# sys.exit()
+
+# print("Saving model...")
+# model_json = model.to_json()
+# with open("model_num.json", "w") as json_file:
+# 	json_file.write(model_json)
+
+
+# model.save_weights('model_num.h5')
+
+# print("Deleting old model...")
+# del model
+
+# print("Loading old model...")
+# json_file = open('model_num.json', 'r')
+# loaded_model_json = json_file.read()
+# json_file.close()
+# loaded_model = model_from_json(loaded_model_json)
+# # load weights into new model
+# loaded_model.load_weights("model_num.h5")
+# model = loaded_model
+# print("Loaded model from disk")
+
+
 # Generate adversarial samples for all test datapoints
 source_samples = X_test_scaled.shape[0]
 
-# Jacobiam-based Saliency Map
+# Jacobian-based Saliency Map Attack
 results = np.zeros((FLAGS.nb_classes, source_samples), dtype='i')
 perturbations = np.zeros((FLAGS.nb_classes, source_samples), dtype='f')
 grads = jacobian_graph(predictions, x, FLAGS.nb_classes)
@@ -236,7 +260,7 @@ for sample_ind in range(0, source_samples):
 
 		print('Generating adv. example for target class {} for sample {}'.format(target, sample_ind), end='\r')
 
-		# This call runs the Jacobian - based saliency map approach
+		# Run the Jacobian-based saliency map approach
 		one_hot_target = np.zeros((1, FLAGS.nb_classes), dtype=np.float32)
 		one_hot_target[0, target] = 1
 		jsma_params['y_target'] = one_hot_target
@@ -245,7 +269,7 @@ for sample_ind in range(0, source_samples):
 		# Check if success was achieved
 		res = int(model_argmax(sess, x, predictions, adv_x) == target)
 
-		# Computer number of modified features
+		# Compute number of modified features
 		adv_x_reshape = adv_x.reshape(-1)
 		test_in_reshape = X_test_scaled[sample_ind].reshape(-1)
 		nb_changed = np.where(adv_x_reshape != test_in_reshape)[0].shape[0]
@@ -269,7 +293,7 @@ accuracy_adv = model_eval(sess, x, y, predictions, X_adv, y_test, args=eval_para
 print("Test accuracy on adversarial examples: {}".format(accuracy_adv))
 print()
 
-print("=============================== Decision tree CLassifier ==============================")
+print("=============================== Decision tree Classifier ==============================")
 dt = OneVsRestClassifier(DecisionTreeClassifier(random_state=42))
 dt.fit(X_train_scaled, y_train)
 y_pred = dt.predict(X_test_scaled)
@@ -305,7 +329,7 @@ plt.savefig('ROC_DT.png', bbox_inches = "tight")
 print()
 
 print()
-print("=============================== Random Forest CLassifier ==============================")
+print("=============================== Random Forest Classifier ==============================")
 rf = OneVsRestClassifier(RandomForestClassifier(n_estimators=200, random_state=42))
 rf.fit(X_train_scaled, y_train)
 y_pred = rf.predict(X_test_scaled)
@@ -341,7 +365,7 @@ plt.savefig('ROC_RF.png', bbox_inches = "tight")
 print()
 
 print()
-print("=============================== Linear SVC CLassifier ==============================")
+print("=============================== Linear SVC Classifier ==============================")
 sv = OneVsRestClassifier(LinearSVC(C=1., random_state=42, loss='hinge'))
 sv.fit(X_train_scaled, y_train)
 y_pred = sv.predict(X_test_scaled)
@@ -377,7 +401,7 @@ plt.savefig('ROC_SVM.png', bbox_inches = "tight")
 print()
 
 print()
-print("=============================== Voting CLassifier ==============================")
+print("=============================== Voting Classifier ==============================")
 vot = VotingClassifier(estimators=[('dt', dt), ('rf', rf), ('sv', sv)], voting='hard')
 vot.fit(X_train_scaled, y_train_l)
 y_pred = vot.predict(X_test_scaled)
@@ -454,7 +478,7 @@ for i in range(0, orig_attack.shape[0]):
 		else:
 			feats[j] = 1
 
-# The number of features that where changed for the adversarial samples
+# The number of features that were changed for the adversarial samples
 print("Number of unique features changed with JSMA: {}".format(len(feats.keys())))
 print("Number of average features changed per datapoint with JSMA: {}".format(total/len(orig_attack)))
 
