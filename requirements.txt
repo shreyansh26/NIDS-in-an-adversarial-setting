@@ -1,0 +1,7 @@
+tensorflow==1.4.1
+matplotlib==1.5.1
+Keras==2.0.8
+pandas==0.22.0
+numpy==1.11.0
+cleverhans==3.0.1
+scikit_learn==0.21.0
