@@ -1,88 +1,0 @@
-================================= Start of preprocessing stage ==============================
-Initial training and test data shapes:  (125973, 43) (22544, 43)
-Unique labels ['normal' 'dos' 'r2l' 'probe' 'u2r']
-Training dataset shape (125973, 122) (125973, 5)
-Test dataset shape (22544, 122) (22544, 5)
-Label encoder y shape (125973,) (22544,)
-================================= End of preprocessing stage ================================
-======================= Start of adversarial sample generation ==============================
-_________________________________________________________________
-Layer (type)                 Output Shape              Param #   
-=================================================================
-dense_1 (Dense)              (None, 256)               31488     
-_________________________________________________________________
-dropout_1 (Dropout)          (None, 256)               0         
-_________________________________________________________________
-dense_2 (Dense)              (None, 256)               65792     
-_________________________________________________________________
-dropout_2 (Dropout)          (None, 256)               0         
-_________________________________________________________________
-dense_3 (Dense)              (None, 5)                 1285      
-=================================================================
-Total params: 98,565
-Trainable params: 98,565
-Non-trainable params: 0
-_________________________________________________________________
-Test accuracy on legitimate test samples: 0.6921575585521647
-Test accuracy on legitimate test samples: 0.5559794180269695
-Test accuracy on legitimate test samples: 0.5746540099361249
-Test accuracy on legitimate test samples: 0.663236337828247
-Test accuracy on legitimate test samples: 0.6591997870830376
-Test accuracy on legitimate test samples: 0.6518807665010646
-Test accuracy on legitimate test samples: 0.6341376863023421
-Test accuracy on legitimate test samples: 0.6481990773598296
-Test accuracy on legitimate test samples: 0.6537437899219305
-Test accuracy on legitimate test samples: 0.6342707594038325
-Test accuracy on legitimate test samples: 0.6441625266146203
-Test accuracy on legitimate test samples: 0.6737047551454932
-Test accuracy on legitimate test samples: 0.6493523775727467
-Test accuracy on legitimate test samples: 0.6524574166075231
-Test accuracy on legitimate test samples: 0.6046398154719659
-Test accuracy on legitimate test samples: 0.651792051100071
-Test accuracy on legitimate test samples: 0.644916607523066
-Test accuracy on legitimate test samples: 0.6372870830376153
-Test accuracy on legitimate test samples: 0.646735273243435
-Test accuracy on legitimate test samples: 0.6415010645848119
-
-(22544, 122)
-=========================== Evaluation of MLP Performance ==============================
-Test accuracy on normal examples: 0.6409244144783535
-Test accuracy on adversarial examples: 0.6556511710432931
-=============================== Decision tree CLassifier ==============================
-Accuracy score: 0.731902058197303
-F1 Score: 0.7559890717785455
-AUC score: 0.8062509525360853
-Accuracy score adversarial: 0.7622870830376153
-F1 Score adversarial: 0.7872918866695126
-AUC score adversarial: 0.844112834099587
-=============================== Random Forest CLassifier ==============================
-Accuracy score: 0.7398864442867282
-F1 Score: 0.7551278575946508
-AUC score: 0.8075866475530744
-Accuracy score adversarial: 0.747693399574166
-F1 Score adversarial: 0.7639407306865739
-AUC score adversarial: 0.8210083378789059
-=============================== Linear SVC CLassifier ==============================
-Accuracy score: 0.7311036195883606
-F1 Score: 0.7501488653154842
-AUC score: 0.7748643544079632
-Accuracy score adversarial: 0.5787349183818311
-F1 Score adversarial: 0.6511616731938205
-AUC score adversarial: 0.8120860282085249
-=============================== Voting CLassifier ==============================
-Accuracy score: 0.7543914123491838
-F1 Score: 0.7543914123491838
-AUC score: 0.6959270385503955
-Accuracy score adversarial: 0.7794978708303761
-F1 Score adversarial: 0.7794978708303761
-AUC score adversarial: 0.6817969297903842
-====================== Adversarial Feature Statistics =======================
-Number of unique features changed with JSMA: 74
-Number of average features changed per datapoint with JSMA: 10.809084457061745
-Top ten features:  Index(['srv_count', 'count', 'dst_host_srv_count', 'dst_host_same_srv_rate',
-       'src_bytes', 'same_srv_rate', 'dst_bytes', 'dst_host_diff_srv_rate',
-       'dst_host_count', 'duration'],
-      dtype='object')
-Test accuracy on adversarial examples: 0.6430535841022001
-Number of unique features changed with FGSM: 122
-Number of average features changed per datapoint with FGSM: 8.169180269694818
