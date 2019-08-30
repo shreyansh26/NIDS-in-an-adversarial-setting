@@ -1,15 +1,10 @@
 # Network Intrusion Detection in an Adversarial Setting
 
-This work is for my B.Tech thesis on the above topic. Broad breakdown of the work that is to be done -
-
-## Semester - 1
+Broad breakdown of the work involved in the project -  
 * Understanding Adversarial Machine Learning
 * Understanding and using the Cleverhans Python module
 * Trying to fool Machine Learning based classifiers for NIDS by making them classify malicious network traffic as benign.
 
-
-## Semester - 2
-Yet to be decided, but should mainly focus on dealing with actaul raw network traffic and/or adversarial training.
 
 -------------------------
 
